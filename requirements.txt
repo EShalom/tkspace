@@ -1,0 +1,12 @@
+numpy
+matplotlib
+scipy
+sigfig
+time
+copy
+random
+math
+skimage
+errno
+os
+sys
