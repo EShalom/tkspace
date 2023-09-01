@@ -2,7 +2,4 @@ numpy
 matplotlib
 scipy
 sigfig
-copy
-random
-math
 skimage
