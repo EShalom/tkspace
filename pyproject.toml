@@ -9,7 +9,7 @@ dependencies = [
   "matplotlib",
   "scipy",
   "sigfig",
-  "skimage",
+  "scikit-image",
 ]
 
 # optional information
