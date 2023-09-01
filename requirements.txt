@@ -2,4 +2,4 @@ numpy
 matplotlib
 scipy
 sigfig
-skimage
+scikit-image
