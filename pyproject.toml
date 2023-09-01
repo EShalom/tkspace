@@ -11,12 +11,7 @@ dependencies = [
   "sigfig",
   "time",
   "copy",
-  "random",
-  "math",
   "skimage",
-  "errno",
-  "os",
-  "sys",
 ]
 
 # optional information
