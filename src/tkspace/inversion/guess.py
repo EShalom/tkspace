@@ -111,7 +111,7 @@ def guess_1d2c(tsamp, case, guess_set):
     Nx, Ny, Nz = meas_voxels
     Nt = len(tsamp)
     
-    fa1 = fa1_fac # mL/s/cm^2
+    fa1 = fa1_fac # mL/s/mm^2
     fv1 = fv1_fac
     F = np.ones((Nx))*F_fac*Fmax
     fa, fv = Ftofafv_1d2c(F,fa1,fv1,dx)

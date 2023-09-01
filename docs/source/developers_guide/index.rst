@@ -36,9 +36,7 @@ The ``tkspace`` package currently only includes methods for the forward simulati
     │   │   ├── sampling
     │   │   ├── systeminfo
     │   │   └── fm_utilities
-    │   ├── twodim
-    │   │   ├── flow
-    │   │   └── fm_utilities
+    │   |
     ├── inversion
     │   ├── gradient_descent
     │   ├── cost_functions

@@ -1,7 +1,15 @@
 Models
 ==========
 
-.. toctree::
-    :maxdepth: 2
+.. currentmodule:: tkspace.models
 
-    models.onedim    
+.. autosummary::
+    :toctree: generated/
+
+    cases
+    flow
+    fm_utilities
+    loadcase
+    sampling
+    systeminfo
+    velocity

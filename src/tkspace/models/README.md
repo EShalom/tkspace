@@ -2,7 +2,7 @@
 
 ---
 
-This package contains sub packages for one and two dimension forward models. 
+This package contains sub packages for one dimension forward models. 
 These forward models evolve tracer concentration according to spatiotemporal 
 tracer kinetic equations in [(Sourbron, 2014)](https://ieeexplore.ieee.org/document/6716985).
 
@@ -10,10 +10,10 @@ These model fall into two representation types:
 
 - The tissue concentration picture models. These are cast in terms of velocity 
 and pseudo diffuion.  
-    - Found in `onedim.velocity`  
+    - Found in `velocity`
 - The local conentration picture can be found in the flow module. These are 
 cast in terms of flow and volume fraction.  
-    - Found in `onedim.flow`  
+    - Found in `flow`  
     
 All models take in physical parameters as arguements and produce a tissue 
 concentration array (accessible by measurement) as the output. Time 

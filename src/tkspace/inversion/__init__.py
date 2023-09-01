@@ -1,1 +1,0 @@
-'''.. include:: README.md.. image:: ../../docs/gradient_descent_flowchart.pdf'''

@@ -1,5 +1,5 @@
 ****************
-Installing osipi
+Installing tkspace
 ****************
 
 ``tkspace`` can be installed using pip:
