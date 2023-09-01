@@ -2,19 +2,29 @@
 # minimal required information
 
 [project]
-name = "osipi"
-version = "0.1.1"
+name = "tkspace"
+version = "0.1.0"
 dependencies = [ 
   "numpy",
+  "matplotlib",
+  "scipy",
+  "sigfig",
+  "time",
+  "copy",
+  "random",
+  "math",
+  "skimage",
+  "errno",
+  "os",
+  "sys",
 ]
 
 # optional information
 
-description = "The authorative python package for perfusion MRI"
+description = "Spatiotemporal tracer kinetics modelling and inverse approaches for DCE-MRI"
 readme = "README.md"
 authors = [
-  { name = "Luis Torres", email = "luistorres@flywheel.io" }, 
-  { name = "Steven Sourbron", email = "s.sourbron@sheffield.ac.uk" },
+  { name = "Eve Shalom", email = "pyess@leeds.ac.uk" }, 
   ]
 license = { file = "LICENSE" }
 classifiers = [
@@ -39,7 +49,7 @@ keywords = ['python', "medical imaging", "perfusion", "MRI"]
 requires-python = ">=3.6"
 
 [project.urls]
-"Homepage" = "https://osipi.github.io"
+"Homepage" = "https://github.com/EShalom/tkspace"
 
 [tool.setuptools.packages.find]
 where = ["src"]
