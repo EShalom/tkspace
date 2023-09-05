@@ -1,6 +1,0 @@
-﻿tkspace.models.fm\_utilities.Ftofafv\_1d2c
-==========================================
-
-.. currentmodule:: tkspace.models.fm_utilities
-
-.. autofunction:: Ftofafv_1d2c
