@@ -6,7 +6,9 @@ Reference
 .. toctree::
     :maxdepth: 2
 
-    models
-    inversion
+    forward_models
+    inversion_methods
+    plotting
+    utilities
 
 

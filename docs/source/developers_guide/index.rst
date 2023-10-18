@@ -26,8 +26,8 @@ The ``tkspace`` package currently only includes methods for the forward simulati
 
 ::
 
-    tkspace.models
-    ├── models
+    tkspace.forward_models
+    ├── forward_models
     │   ├── onedim
     │   │   ├── cases
     │   │   ├── flow
@@ -37,7 +37,7 @@ The ``tkspace`` package currently only includes methods for the forward simulati
     │   │   ├── systeminfo
     │   │   └── fm_utilities
     │   |
-    ├── inversion
+    ├── inversion_methods
     │   ├── gradient_descent
     │   ├── cost_functions
     │   └── guess

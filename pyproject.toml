@@ -12,6 +12,13 @@ dependencies = [
   "scikit-image",
 ]
 
+[build-system]
+requires = [
+"setuptools>=42",
+"wheel"
+]
+build-backend = "setuptools.build_meta"
+
 # optional information
 
 description = "Spatiotemporal tracer kinetics modelling and inverse approaches for DCE-MRI"

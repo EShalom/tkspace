@@ -1,6 +1,6 @@
 ## Overview
 
-This package tkspace  houses a number of sub-packages and modules which 
+This package tkspace houses a number of sub-packages and modules which 
 describe spatiotemporal tracer kinetics in one and two compartment systems. 
 This includes both simulation of concentration time curve data from physical 
 quantities such as influx and velocity and algoritms for the inverse problem 
@@ -40,7 +40,7 @@ Install the tkspace package using the .whl file:
 
 * Navigate to the dist directory  
 * Run `pip install TKfunctions_pyess-0.0.1-py3-none-any.whl`   
-* This will install the TKfunctions as a package within your current python environment  
+* This will install the tkspace as a package within your current python environment  
 
 Runs using Python3.x, other specifc library dependancies are as follows:  
 

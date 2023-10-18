@@ -1,4 +1,4 @@
-autodocsumm
+autodocsumm==0.1.13
 docutils
 myst-parser
 pydata-sphinx-theme
