@@ -34,7 +34,7 @@ Runs using Python3.x, other specifc library dependancies are as follows:
 ---
 ## Documentation
 
-Find the documention in html format for the package in the docs directory.
+[Documentation](https://EShalom.github.io/tkspace/) is under construction.
 
 ---
 
@@ -64,5 +64,3 @@ from the spatio-temporal concnetration data sets.
     - `inversion_methods`
 
 ---
-
-[Documentation](https://EShalom.github.io/tkspace/) is under construction.
