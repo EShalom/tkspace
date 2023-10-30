@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/665593922.svg)](https://zenodo.org/doi/10.5281/zenodo.10056112)
+
 # tkspace package
 
 This package tkspace houses a number of sub-packages and modules which 
