@@ -121,7 +121,7 @@ fix_vals = [1,1,0,1,1,1,0] #(f, F, D, v, va_frac,Ja, Jv)
 lb = [-1,0,0,0.01,0.1,0]#(f, F, D, v, va_frac, J)
 ub = [1,1,1,1,0.8,1]#(f, F, D, v, va_frac, J)
 exit_change = [1e-4,1e-6,1e-9,1e-4,0]
-max_vals = [1.4,0.15,4e-6,1,1,15] # umax (cm/s), Dmax (cm^2/s), Jmax (mmol/s)
+max_vals = [1.4,0.15,4e-6,1,1,15] # # fmax, Fmax, Dmax, vmax, va_frac_max, Jmax
 
 np.savez_compressed('{}/InitialOptimisationValues'.format(fdir), init_tuple=init, i=start_time)
 
