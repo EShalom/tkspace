@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tkspace.forward_models.onedim.loadcase &#8212; tkspace 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/tkspace/forward_models/onedim/loadcase';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/tkspace.png" class="logo__image only-light" alt="tkspace 0.0.1 documentation - Home"/>
+    <script>document.write(`<img src="../../../../_static/tkspace.png" class="logo__image only-dark" alt="tkspace 0.0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../user_guide/index.html">
+                        User guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../developers_guide/index.html">
+                        Developer guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../about/index.html">
+                        About
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/EShalom/tkspace" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../user_guide/index.html">
+                        User guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../developers_guide/index.html">
+                        Developer guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../about/index.html">
+                        About
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/EShalom/tkspace" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">tkspace.forw...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for tkspace.forward_models.onedim.loadcase</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module containing functions with load parameters for specifc saved cases based</span>
+<span class="sd">on system type, case number, dimension and picture.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="load_P">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.loadcase.load_P.html#tkspace.forward_models.onedim.loadcase.load_P">[docs]</a>
+<span class="k">def</span> <span class="nf">load_P</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span><span class="n">comp</span><span class="p">,</span><span class="n">case</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Load the ground truth parameter list from a specific file.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        </span>
+<span class="sd">        - dims (int):   </span>
+<span class="sd">            - Dimension number.  </span>
+<span class="sd">        - comp (int)   </span>
+<span class="sd">            - Number of compartments.  </span>
+<span class="sd">        - case (int):   </span>
+<span class="sd">            - Case number within the system type.  </span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        - Pnorm (numpy.ndarray float64):   </span>
+<span class="sd">            - Normalised parameter list for the initial guess in the optimisation.  </span>
+<span class="sd">        - Pmax (numpy.ndarray float64):   </span>
+<span class="sd">            - Maximum parameter value list.  </span>
+<span class="sd">        - dt (float64):   </span>
+<span class="sd">            - Time resolution (s) of loaded parameters.  </span>
+<span class="sd">        - Nt (int):   </span>
+<span class="sd">            - Number of time points.  </span>
+<span class="sd">        - t (numpy.ndarray float64):   </span>
+<span class="sd">            - Array of timepoints (s).  </span>
+<span class="sd">        &#39;&#39;&#39;</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="kn">from</span> <span class="nn">tkspace.utilities</span> <span class="kn">import</span> <span class="n">mkdir_p</span> <span class="k">as</span> <span class="n">mkdir</span>
+    <span class="n">fdir</span> <span class="o">=</span> <span class="s1">&#39;case_dictionaries/&#39;</span>
+    <span class="n">mkdir</span><span class="p">(</span><span class="n">fdir</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;case</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">d</span><span class="si">{}</span><span class="s1">c.npz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">case</span><span class="p">,</span><span class="n">dims</span><span class="p">,</span><span class="n">comp</span><span class="p">)</span>
+    
+    <span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fdir</span><span class="p">,</span><span class="n">fname</span><span class="p">),</span><span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">t</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span>
+    <span class="n">Nt</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Nt&#39;</span><span class="p">]</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dt&#39;</span><span class="p">]</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span>
+    <span class="n">Pmax</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Pmax&#39;</span><span class="p">]</span>
+    
+    <span class="n">Pnorm</span> <span class="o">=</span> <span class="n">P</span><span class="o">/</span><span class="n">Pmax</span>
+    
+    <span class="k">return</span> <span class="n">Pnorm</span><span class="p">,</span> <span class="n">Pmax</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">Nt</span><span class="p">,</span> <span class="n">t</span></div>
+
+
+<div class="viewcode-block" id="load_Pguess">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.loadcase.load_Pguess.html#tkspace.forward_models.onedim.loadcase.load_Pguess">[docs]</a>
+<span class="k">def</span> <span class="nf">load_Pguess</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span><span class="n">comp</span><span class="p">,</span><span class="n">pic</span><span class="p">,</span><span class="n">case</span><span class="p">,</span><span class="n">guess</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Load the guess parameter list from a specific file.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        </span>
+<span class="sd">        - dims (int):  </span>
+<span class="sd">            - Dimension number.  </span>
+<span class="sd">        - comp (int):   </span>
+<span class="sd">            - Number of compartments.  </span>
+<span class="sd">        - pic (int):   </span>
+<span class="sd">            - Picture representation type. 1: Local, 2: Tissue.  </span>
+<span class="sd">        - case (int):   </span>
+<span class="sd">            - Case number within the system type.  </span>
+<span class="sd">        - guess (int):   </span>
+<span class="sd">            - Guess number to use.  </span>
+<span class="sd">v    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        - Pinitial (numpy.ndarray float64):   </span>
+<span class="sd">            - Parameter list for the initial guess in the optimisation.  </span>
+<span class="sd">        - Pmax (numpy.ndarray float64):   </span>
+<span class="sd">            - Maximum parameter value lis.  </span>
+<span class="sd">        - Pfix (numpy.ndarray float64):   </span>
+<span class="sd">            - Value deciding if a parameter will be optimised in algorithm. Fixed = 0, Free = 1.  </span>
+<span class="sd">        - Pbnds (nested list):   </span>
+<span class="sd">            - List of pairs of each lower and upper bound for each parameter.  </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="kn">from</span> <span class="nn">tkspace.utilities</span> <span class="kn">import</span> <span class="n">mkdir_p</span> <span class="k">as</span> <span class="n">mkdir</span>
+    <span class="n">fdir</span> <span class="o">=</span> <span class="s1">&#39;case_dictionaries/&#39;</span>
+    <span class="n">mkdir</span><span class="p">(</span><span class="n">fdir</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;case</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">d</span><span class="si">{}</span><span class="s1">c_pic</span><span class="si">{}</span><span class="s1">.npz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">case</span><span class="p">,</span><span class="n">dims</span><span class="p">,</span><span class="n">comp</span><span class="p">,</span><span class="n">pic</span><span class="p">)</span>
+    
+    <span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fdir</span><span class="p">,</span><span class="n">fname</span><span class="p">))</span>
+    
+    <span class="n">Pinitial</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Pinitial&#39;</span><span class="p">]</span>
+    <span class="n">Pmax</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Pmax&#39;</span><span class="p">]</span>
+    <span class="n">Pfix</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Pfix&#39;</span><span class="p">]</span>
+    <span class="n">Pbnds</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Pbnds&#39;</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">Pinitial</span><span class="p">,</span> <span class="n">Pmax</span><span class="p">,</span> <span class="n">Pfix</span><span class="p">,</span> <span class="n">Pbnds</span></div>
+
+    
+<div class="viewcode-block" id="load_velocity_1d1c">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.loadcase.load_velocity_1d1c.html#tkspace.forward_models.onedim.loadcase.load_velocity_1d1c">[docs]</a>
+<span class="k">def</span> <span class="nf">load_velocity_1d1c</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span><span class="n">comp</span><span class="p">,</span><span class="n">case</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Load the physical parameters from a specific file that uses the tissue picture.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        - dims (int):  </span>
+<span class="sd">            - Dimension number.  </span>
+<span class="sd">        - comp (int)   </span>
+<span class="sd">            - Number of compartments.   </span>
+<span class="sd">        - case (int):   </span>
+<span class="sd">            - Case number within the system type.  </span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        - u (numpy.ndarray float64):   </span>
+<span class="sd">            - Velocity (cm/s) at each voxel interface. Length = Nx + 1.    </span>
+<span class="sd">        - D (numpy.ndarray float64):   </span>
+<span class="sd">            - Pseudo diffusion (cm^2/s) at each voxel interface. Length = Nx + 1.  </span>
+<span class="sd">        - Jl (numpy.ndarray float64):   </span>
+<span class="sd">            - Influx (mol/s) of concentration at the system&#39;s left boundary. Length = len(tsamp) (ground truth) or len(tsamp) - 1 (inversion).  </span>
+<span class="sd">        - Jr (numpy.ndarray float64):   </span>
+<span class="sd">            - Influx (mol/s) of concentration at the system&#39;s right boundary. Length = len(tsamp) (ground truth) or len(tsamp) - 1 (inversion).  </span>
+<span class="sd">        - Nt (int):   </span>
+<span class="sd">            - Number of timepoints.</span>
+<span class="sd">        - dt (float64):   </span>
+<span class="sd">            - Time resolution (s).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    
+    <span class="kn">from</span> <span class="nn">tkspace.utilities</span> <span class="kn">import</span> <span class="n">mkdir_p</span> <span class="k">as</span> <span class="n">mkdir</span>
+    <span class="n">fdir</span> <span class="o">=</span> <span class="s1">&#39;case_dictionaries/&#39;</span>
+    <span class="n">mkdir</span><span class="p">(</span><span class="n">fdir</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;case</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">d</span><span class="si">{}</span><span class="s1">c.npz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">case</span><span class="p">,</span><span class="n">dims</span><span class="p">,</span><span class="n">comp</span><span class="p">)</span>
+    
+    <span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fdir</span><span class="p">,</span><span class="n">fname</span><span class="p">))</span>
+    
+    <span class="n">u</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">]</span>
+    <span class="n">Jl</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Jl&#39;</span><span class="p">]</span>
+    <span class="n">Jr</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Jr&#39;</span><span class="p">]</span>
+    <span class="n">Nt</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Nt&#39;</span><span class="p">]</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dt&#39;</span><span class="p">]</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">u</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">Jl</span><span class="p">,</span> <span class="n">Jr</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">Nt</span><span class="p">,</span> <span class="n">t</span></div>
+
+
+<div class="viewcode-block" id="load_flow_1d1c">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.loadcase.load_flow_1d1c.html#tkspace.forward_models.onedim.loadcase.load_flow_1d1c">[docs]</a>
+<span class="k">def</span> <span class="nf">load_flow_1d1c</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span><span class="n">comp</span><span class="p">,</span><span class="n">case</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Load the physical parameters from a specific file that uses the local picture.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        - dims (int):  </span>
+<span class="sd">            - Dimension number.  </span>
+<span class="sd">        - comp (int)   </span>
+<span class="sd">            - Number of compartments.   </span>
+<span class="sd">        - case (int):   </span>
+<span class="sd">            - Case number within the system type.  </span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        - f (numpy.ndarray float64):   </span>
+<span class="sd">            - Flow (ml/s/cm^2) at each voxel interface. Length = Nx + 1.    </span>
+<span class="sd">        - D (numpy.ndarray float64):   </span>
+<span class="sd">            - Pseudo diffusion (cm^2/s) at each voxel interface. Length = Nx + 1.  </span>
+<span class="sd">        - v (numpy.ndarray float64):  </span>
+<span class="sd">            - Volume fraction of compartment in voxel (mL/mL)</span>
+<span class="sd">        - Jl (numpy.ndarray float64):   </span>
+<span class="sd">            - Influx (mol/s) of concentration at the system&#39;s left boundary. Length = len(tsamp) (ground truth) or len(tsamp) - 1 (inversion).  </span>
+<span class="sd">        - Jr (numpy.ndarray float64):   </span>
+<span class="sd">            - Influx (mol/s) of concentration at the system&#39;s right boundary. Length = len(tsamp) (ground truth) or len(tsamp) - 1 (inversion).  </span>
+<span class="sd">        - Nt (int):   </span>
+<span class="sd">            - Number of timepoints.</span>
+<span class="sd">        - dt (float64):   </span>
+<span class="sd">            - Time resolution (s).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    
+    <span class="kn">from</span> <span class="nn">tkspace.utilities</span> <span class="kn">import</span> <span class="n">mkdir_p</span> <span class="k">as</span> <span class="n">mkdir</span>
+    <span class="n">fdir</span> <span class="o">=</span> <span class="s1">&#39;case_dictionaries/&#39;</span>
+    <span class="n">mkdir</span><span class="p">(</span><span class="n">fdir</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;case</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">d</span><span class="si">{}</span><span class="s1">c.npz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">case</span><span class="p">,</span><span class="n">dims</span><span class="p">,</span><span class="n">comp</span><span class="p">)</span>
+    
+    <span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fdir</span><span class="p">,</span><span class="n">fname</span><span class="p">),</span><span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">f</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">]</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">]</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
+    <span class="n">Jl</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Jl&#39;</span><span class="p">]</span>
+    <span class="n">Jr</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Jr&#39;</span><span class="p">]</span>
+    <span class="n">Nt</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Nt&#39;</span><span class="p">]</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dt&#39;</span><span class="p">]</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">Jl</span><span class="p">,</span> <span class="n">Jr</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">Nt</span><span class="p">,</span> <span class="n">t</span></div>
+
+
+<div class="viewcode-block" id="load_velocity_1d2c">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.loadcase.load_velocity_1d2c.html#tkspace.forward_models.onedim.loadcase.load_velocity_1d2c">[docs]</a>
+<span class="k">def</span> <span class="nf">load_velocity_1d2c</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span><span class="n">comp</span><span class="p">,</span><span class="n">case</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Load the physical parameters from a specific file that uses the tissue picture.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        - dims (int):  </span>
+<span class="sd">            - Dimension number.  </span>
+<span class="sd">        - comp (int)   </span>
+<span class="sd">            - Number of compartments.  </span>
+<span class="sd">        - pic (int):   </span>
+<span class="sd">            - Picture representation type. 1: Local, 2: Tissue.  </span>
+<span class="sd">        - case (int):   </span>
+<span class="sd">            - Case number within the system type.  </span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        - ua (numpy.ndarray float64):   </span>
+<span class="sd">            - Arterial velocity (cm/s) at each voxel interface. Length = Nx + 1.    </span>
+<span class="sd">        - uv (numpy.ndarray float64):   </span>
+<span class="sd">            - Venous velocity (cm/s) at each voxel interface. Length = Nx + 1.  </span>
+<span class="sd">        - Kva (numpy.ndarray float64):   </span>
+<span class="sd">            - Transfer  from artery in vein compartment (1/s). Length = N.  </span>
+<span class="sd">        - Da (numpy.ndarray float64):   </span>
+<span class="sd">            - Arterial pseudo diffusion (cm^2/s) at each voxel interface. Length = Nx + 1.  </span>
+<span class="sd">        - Dv (numpy.ndarray float64):   </span>
+<span class="sd">            - Venous pseudo diffusion (cm^2/s) at each voxel interface. Length = Nx + 1.  </span>
+<span class="sd">        - Jla (numpy.ndarray float64):   </span>
+<span class="sd">            - Arterial influx (mol/s) of concentration at the system&#39;s left boundary. Length = len(tsamp) (ground truth) or len(tsamp) - 1 (inversion).  </span>
+<span class="sd">        - Jlv (numpy.ndarray float64):   </span>
+<span class="sd">            - Venous influx (mol/s) of concentration at the system&#39;s left boundary. Length = len(tsamp) (ground truth) or len(tsamp) - 1 (inversion).  </span>
+<span class="sd">        - Jra (numpy.ndarray float64):   </span>
+<span class="sd">            - Arterial influx (mol/s) of concentration at the system&#39;s right boundary. Length = len(tsamp) (ground truth) or len(tsamp) - 1 (inversion).  </span>
+<span class="sd">        - Jrv (numpy.ndarray float64):   </span>
+<span class="sd">            - Venous influx (mol/s) of concentration at the system&#39;s right boundary. Length = len(tsamp) (ground truth) or len(tsamp) - 1 (inversion).  </span>
+<span class="sd">        - Nt (int):   </span>
+<span class="sd">            - Number of timepoints.</span>
+<span class="sd">        - dt (float64):   </span>
+<span class="sd">            - Time resolution (s).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    
+    <span class="kn">from</span> <span class="nn">tkspace.utilities</span> <span class="kn">import</span> <span class="n">mkdir_p</span> <span class="k">as</span> <span class="n">mkdir</span>
+    <span class="n">fdir</span> <span class="o">=</span> <span class="s1">&#39;case_dictionaries/&#39;</span>
+    <span class="n">mkdir</span><span class="p">(</span><span class="n">fdir</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;case</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">d</span><span class="si">{}</span><span class="s1">c.npz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">case</span><span class="p">,</span><span class="n">dims</span><span class="p">,</span><span class="n">comp</span><span class="p">)</span>
+    
+    <span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fdir</span><span class="p">,</span><span class="n">fname</span><span class="p">))</span>
+    
+    <span class="n">ua</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;ua&#39;</span><span class="p">]</span>
+    <span class="n">uv</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;uv&#39;</span><span class="p">]</span>
+    <span class="n">Da</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Da&#39;</span><span class="p">]</span>
+    <span class="n">Dv</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Dv&#39;</span><span class="p">]</span>
+    <span class="n">Kva</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Kva&#39;</span><span class="p">]</span>
+    <span class="n">Jpa</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Jpa&#39;</span><span class="p">]</span>
+    <span class="n">Jpv</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Jpv&#39;</span><span class="p">]</span>
+    <span class="n">Jna</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Jna&#39;</span><span class="p">]</span>
+    <span class="n">Jnv</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Jnv&#39;</span><span class="p">]</span>
+    <span class="n">Nt</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Nt&#39;</span><span class="p">]</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dt&#39;</span><span class="p">]</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">ua</span><span class="p">,</span> <span class="n">uv</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">Kva</span><span class="p">,</span> <span class="n">Jpa</span><span class="p">,</span> <span class="n">Jpv</span><span class="p">,</span> <span class="n">Jna</span><span class="p">,</span> <span class="n">Jnv</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">Nt</span><span class="p">,</span> <span class="n">t</span></div>
+
+
+<div class="viewcode-block" id="load_flow_1d2c">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.loadcase.load_flow_1d2c.html#tkspace.forward_models.onedim.loadcase.load_flow_1d2c">[docs]</a>
+<span class="k">def</span> <span class="nf">load_flow_1d2c</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span><span class="n">comp</span><span class="p">,</span><span class="n">case</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Load the physical parameters from a specific file that uses the tissue picture.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        - dims (int):  </span>
+<span class="sd">            - Dimension number.  </span>
+<span class="sd">        - comp (int)   </span>
+<span class="sd">            - Number of compartments.  </span>
+<span class="sd">        - pic (int):   </span>
+<span class="sd">            - Picture representation type. 1: Local, 2: Tissue.  </span>
+<span class="sd">        - case (int):   </span>
+<span class="sd">            - Case number within the system type.  </span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        - ua (numpy.ndarray float64):   </span>
+<span class="sd">            - Arterial velocity (cm/s) at each voxel interface. Length = Nx + 1.    </span>
+<span class="sd">        - uv (numpy.ndarray float64):   </span>
+<span class="sd">            - Venous velocity (cm/s) at each voxel interface. Length = Nx + 1.  </span>
+<span class="sd">        - Kva (numpy.ndarray float64):   </span>
+<span class="sd">            - Transfer  from artery in vein compartment (1/s). Length = N.  </span>
+<span class="sd">        - Da (numpy.ndarray float64):   </span>
+<span class="sd">            - Arterial pseudo diffusion (cm^2/s) at each voxel interface. Length = Nx + 1.  </span>
+<span class="sd">        - Dv (numpy.ndarray float64):   </span>
+<span class="sd">            - Venous pseudo diffusion (cm^2/s) at each voxel interface. Length = Nx + 1.  </span>
+<span class="sd">        - Jla (numpy.ndarray float64):   </span>
+<span class="sd">            - Arterial influx (mol/s) of concentration at the system&#39;s left boundary. Length = len(tsamp) (ground truth) or len(tsamp) - 1 (inversion).  </span>
+<span class="sd">        - Jlv (numpy.ndarray float64):   </span>
+<span class="sd">            - Venous influx (mol/s) of concentration at the system&#39;s left boundary. Length = len(tsamp) (ground truth) or len(tsamp) - 1 (inversion).  </span>
+<span class="sd">        - Jra (numpy.ndarray float64):   </span>
+<span class="sd">            - Arterial influx (mol/s) of concentration at the system&#39;s right boundary. Length = len(tsamp) (ground truth) or len(tsamp) - 1 (inversion).  </span>
+<span class="sd">        - Jrv (numpy.ndarray float64):   </span>
+<span class="sd">            - Venous influx (mol/s) of concentration at the system&#39;s right boundary. Length = len(tsamp) (ground truth) or len(tsamp) - 1 (inversion).  </span>
+<span class="sd">        - Nt (int):   </span>
+<span class="sd">            - Number of timepoints.</span>
+<span class="sd">        - dt (float64):   </span>
+<span class="sd">            - Time resolution (s).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    
+    <span class="kn">from</span> <span class="nn">tkspace.utilities</span> <span class="kn">import</span> <span class="n">mkdir_p</span> <span class="k">as</span> <span class="n">mkdir</span>
+    <span class="n">fdir</span> <span class="o">=</span> <span class="s1">&#39;case_dictionaries/&#39;</span>
+    <span class="n">mkdir</span><span class="p">(</span><span class="n">fdir</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;case</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">d</span><span class="si">{}</span><span class="s1">c.npz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">case</span><span class="p">,</span><span class="n">dims</span><span class="p">,</span><span class="n">comp</span><span class="p">)</span>
+    
+    <span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fdir</span><span class="p">,</span><span class="n">fname</span><span class="p">),</span><span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">fa</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;fa&#39;</span><span class="p">]</span>
+    <span class="n">fv</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;fv&#39;</span><span class="p">]</span>
+    <span class="n">Da</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Da&#39;</span><span class="p">]</span>
+    <span class="n">Dv</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Dv&#39;</span><span class="p">]</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">]</span>
+    <span class="n">va</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;va&#39;</span><span class="p">]</span>
+    <span class="n">va_frac</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;va_frac&#39;</span><span class="p">]</span>
+    <span class="n">vv</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;vv&#39;</span><span class="p">]</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
+    <span class="n">Jpa</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Jpa_f&#39;</span><span class="p">]</span>
+    <span class="n">Jpv</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Jpv&#39;</span><span class="p">]</span>
+    <span class="n">Jna</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Jna_f&#39;</span><span class="p">]</span>
+    <span class="n">Jnv</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Jnv&#39;</span><span class="p">]</span>
+    <span class="n">Nt</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;Nt&#39;</span><span class="p">]</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dt&#39;</span><span class="p">]</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">fa</span><span class="p">,</span> <span class="n">fv</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">va</span><span class="p">,</span> <span class="n">va_frac</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">Jpa</span><span class="p">,</span> <span class="n">Jpv</span><span class="p">,</span> <span class="n">Jna</span><span class="p">,</span> <span class="n">Jnv</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">Nt</span><span class="p">,</span> <span class="n">t</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Eve Shalom.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

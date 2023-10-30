@@ -1,0 +1,966 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tkspace.forward_models.onedim.fm_utilities &#8212; tkspace 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/tkspace/forward_models/onedim/fm_utilities';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/tkspace.png" class="logo__image only-light" alt="tkspace 0.0.1 documentation - Home"/>
+    <script>document.write(`<img src="../../../../_static/tkspace.png" class="logo__image only-dark" alt="tkspace 0.0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../user_guide/index.html">
+                        User guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../developers_guide/index.html">
+                        Developer guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../about/index.html">
+                        About
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/EShalom/tkspace" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../user_guide/index.html">
+                        User guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../developers_guide/index.html">
+                        Developer guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../about/index.html">
+                        About
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/EShalom/tkspace" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">tkspace.forw...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for tkspace.forward_models.onedim.fm_utilities</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module containing useful functions such as extractfing physical parameters and </span>
+<span class="sd">using them to run through forwards simulations.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="interp_linear">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.interp_linear.html#tkspace.forward_models.onedim.fm_utilities.interp_linear">[docs]</a>
+<span class="k">def</span> <span class="nf">interp_linear</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">old_points</span><span class="p">,</span> <span class="n">new_points</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Linear interpolation from coarse resolution to fine resolution.&#39;&#39;&#39;</span>
+    
+    <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+    
+    <span class="n">interp_values</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">old_points</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">fill_value</span><span class="o">=</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))(</span><span class="n">new_points</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">interp_values</span></div>
+
+    
+<div class="viewcode-block" id="fmodsetup_1d1c">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.fmodsetup_1d1c.html#tkspace.forward_models.onedim.fm_utilities.fmodsetup_1d1c">[docs]</a>
+<span class="k">def</span> <span class="nf">fmodsetup_1d1c</span><span class="p">(</span><span class="n">fmod</span><span class="p">,</span> <span class="n">Pnorm</span><span class="p">,</span> <span class="n">Pmax</span><span class="p">,</span> <span class="n">dtsim</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">sysdim</span><span class="p">,</span> <span class="n">tsamp</span><span class="p">,</span> <span class="n">pic</span><span class="p">,</span> <span class="n">inv</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Extracts parameters from stack and runs in correct forward model.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        </span>
+<span class="sd">        - fmod (callable function):  </span>
+<span class="sd">             - Forwards model which returns concentration array.  </span>
+<span class="sd">        - Pnorm (numpy.ndarray float64):  </span>
+<span class="sd">             - Normalised parameter stack, values 0 &lt;= abs(1).  </span>
+<span class="sd">        - Pmax (numpy.ndarray float64):  </span>
+<span class="sd">            - Maximum parameter stack, to convert back to unnormalised quantities.  </span>
+<span class="sd">        - res (list):  </span>
+<span class="sd">            - Spatial resolution and minimum time resolution of the system for simulation. res = (dx,dy,dz,dtmin).  </span>
+<span class="sd">        - sysdim (list):  </span>
+<span class="sd">            - System total length in space and time. sysdim = (Lx, Ly, Lz, T).  </span>
+<span class="sd">        - tsamp (numpy.ndarray float64):  </span>
+<span class="sd">            - Sampling timepoints (s).  </span>
+<span class="sd">        - inv (0,1):  </span>
+<span class="sd">            - Option to run simulation as ground truth or inversion. Last time point is interpolated if inversion option selected.  </span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        </span>
+<span class="sd">        - Ctiss (numpy.ndarray float64):  </span>
+<span class="sd">            - Concentration (mM) in the system in space and time. Shape = (1,Nx,1,Nt)  </span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">heaviside</span> <span class="k">as</span> <span class="n">H</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">append</span>  
+    <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span> <span class="o">=</span> <span class="n">res</span>
+    <span class="n">Lx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">Lz</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">sysdim</span>
+    
+    <span class="n">Nx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Lx</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">Pnorm</span> <span class="o">*</span> <span class="n">Pmax</span>
+    
+    <span class="k">if</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">f</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">Cp</span><span class="p">,</span> <span class="n">Cn</span> <span class="o">=</span> <span class="n">param_extract_flow_1d1c</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Nx</span><span class="p">)</span>
+        <span class="n">Jp</span> <span class="o">=</span> <span class="n">Cp</span> <span class="o">*</span> <span class="p">((</span><span class="n">f</span><span class="o">*</span><span class="n">H</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Jn</span> <span class="o">=</span> <span class="n">Cn</span> <span class="o">*</span> <span class="p">((</span><span class="o">-</span><span class="n">f</span><span class="o">*</span><span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">Jp</span><span class="p">,</span> <span class="n">Jn</span> <span class="o">=</span> <span class="n">param_extract_vel_1d1c</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Nx</span><span class="p">)</span>
+        <span class="n">Jp</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jn</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">u</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">inv</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">Jp</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">Jp</span><span class="p">,</span><span class="n">Jp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">Jn</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">Jn</span><span class="p">,</span><span class="n">Jn</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="k">if</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">C_tiss</span> <span class="o">=</span> <span class="n">fmod</span><span class="p">(</span><span class="n">Lx</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">tsamp</span><span class="p">,</span> <span class="n">dtsim</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">Jp</span><span class="p">,</span> <span class="n">Jn</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">C_tiss</span> <span class="o">=</span> <span class="n">fmod</span><span class="p">(</span><span class="n">Lx</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">tsamp</span><span class="p">,</span> <span class="n">dtsim</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">Jp</span><span class="p">,</span> <span class="n">Jn</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">C_tiss</span></div>
+
+
+<div class="viewcode-block" id="fmodsetup_1d2c">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.fmodsetup_1d2c.html#tkspace.forward_models.onedim.fm_utilities.fmodsetup_1d2c">[docs]</a>
+<span class="k">def</span> <span class="nf">fmodsetup_1d2c</span><span class="p">(</span><span class="n">fmod</span><span class="p">,</span> <span class="n">Pnorm</span><span class="p">,</span> <span class="n">Pmax</span><span class="p">,</span> <span class="n">dtsim</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">sysdim</span><span class="p">,</span> <span class="n">tsamp</span><span class="p">,</span> <span class="n">pic</span><span class="p">,</span> <span class="n">inv</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Extracts parameters from stack and runs in correct forward model.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        </span>
+<span class="sd">        - fmod (callable function):  </span>
+<span class="sd">            - Forwards model which returns concentration array.  </span>
+<span class="sd">        - Pnorm (numpy.ndarray float64):  </span>
+<span class="sd">            - Normalised parameter stack, values 0 &lt;= abs(1).  </span>
+<span class="sd">        - Pmax (numpy.ndarray float64):  </span>
+<span class="sd">            - Maximum parameter stack, to convert back to unnormalised quantities.  </span>
+<span class="sd">        - res (list):  </span>
+<span class="sd">            - Spatial resolution and minimum time resolution of the system for simulation. res = (dx,dy,dz,dtmin).  </span>
+<span class="sd">        - sysdim (list):  </span>
+<span class="sd">            - System total length in space and time. sysdim = (Lx, Ly, Lz, T).  </span>
+<span class="sd">        - tsamp (numpy.ndarray float64):  </span>
+<span class="sd">            - Sampling timepoints (s).  </span>
+<span class="sd">        - inv (0,1):  </span>
+<span class="sd">            - Option to run simulation as ground truth or inversion. Last time point is interpolated if inversion option selected.  </span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        </span>
+<span class="sd">        - Ctiss (numpy.ndarray float64):  </span>
+<span class="sd">            - Concentration (mM) in the system in space and time. Shape = (1,Nx,1,Nt)  </span>
+<span class="sd">        - Ca (numpy.ndarray float64):  </span>
+<span class="sd">            - Arterial concentration (mM) in the system in space and time. Shape = (1,Nx,1,Nt)  </span>
+<span class="sd">        - Cv (numpy.ndarray float64):  </span>
+<span class="sd">            - Venous concentration (mM) in the system in space and time. Shape = (1,Nx,1,Nt)  </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">heaviside</span> <span class="k">as</span> <span class="n">H</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">append</span>
+    <span class="kn">from</span> <span class="nn">tkspace.forward_models.onedim.fm_utilities</span> <span class="kn">import</span> <span class="n">parker2006AIF_flexible</span> <span class="k">as</span> <span class="n">aif</span>
+    <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span> <span class="o">=</span> <span class="n">res</span>
+    <span class="n">dxyz</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">dy</span><span class="o">*</span><span class="n">dz</span>
+    <span class="n">Lx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">Lz</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">sysdim</span>
+    
+    <span class="n">Nx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Lx</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">Pnorm</span> <span class="o">*</span> <span class="n">Pmax</span>
+    
+    <span class="k">if</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">fa1</span><span class="p">,</span> <span class="n">fv1</span><span class="p">,</span><span class="n">fa</span><span class="p">,</span><span class="n">fv</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">va</span><span class="p">,</span> <span class="n">va_frac</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span><span class="n">v</span><span class="p">,</span> <span class="n">Jpa</span><span class="p">,</span> <span class="n">Jpv</span><span class="p">,</span> <span class="n">Jna</span><span class="p">,</span> <span class="n">Jnv</span> <span class="o">=</span> <span class="n">param_extract_flow_1d2c</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span><span class="n">dx</span><span class="p">)</span>
+        <span class="n">Jpa</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="n">fa</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jna</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">fa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jpv</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="n">fv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jnv</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">fv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">ua</span><span class="p">,</span> <span class="n">uv</span><span class="p">,</span> <span class="n">Kva</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">Jpa</span><span class="p">,</span> <span class="n">Jpv</span><span class="p">,</span> <span class="n">Jna</span><span class="p">,</span> <span class="n">Jnv</span> <span class="o">=</span> <span class="n">param_extract_vel_1d2c</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Nx</span><span class="p">)</span>
+        <span class="n">Jpa</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="n">ua</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jna</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">ua</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jpv</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="n">uv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jnv</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">uv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">ua</span><span class="p">,</span> <span class="n">uv</span><span class="p">,</span> <span class="n">Kva</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">Cpa</span><span class="p">,</span> <span class="n">Cpv</span><span class="p">,</span> <span class="n">Cna</span><span class="p">,</span> <span class="n">Cnv</span> <span class="o">=</span> <span class="n">param_extract_vel_1d2c</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Nx</span><span class="p">)</span>
+        <span class="n">Jpa</span> <span class="o">=</span> <span class="n">Cpa</span><span class="o">*</span><span class="p">((</span><span class="n">ua</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">H</span><span class="p">(</span><span class="n">ua</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span> <span class="o">+</span> <span class="n">Da</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Jna</span> <span class="o">=</span> <span class="n">Cna</span><span class="o">*</span><span class="p">((</span><span class="o">-</span><span class="n">ua</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">ua</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span> <span class="o">+</span> <span class="n">Da</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Jpv</span> <span class="o">=</span> <span class="n">Cpv</span><span class="o">*</span><span class="p">((</span><span class="n">uv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">H</span><span class="p">(</span><span class="n">uv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span> <span class="o">+</span> <span class="n">Dv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Jnv</span> <span class="o">=</span> <span class="n">Cnv</span><span class="o">*</span><span class="p">((</span><span class="o">-</span><span class="n">uv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">uv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span> <span class="o">+</span> <span class="n">Dv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Jpa</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="n">ua</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jna</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">ua</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jpv</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="n">uv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jnv</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">uv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">fa1</span><span class="p">,</span> <span class="n">fv1</span><span class="p">,</span><span class="n">fa</span><span class="p">,</span><span class="n">fv</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">va</span><span class="p">,</span> <span class="n">va_frac</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span><span class="n">v</span><span class="p">,</span> <span class="n">Cpa</span><span class="p">,</span> <span class="n">Cpv</span><span class="p">,</span> <span class="n">Cna</span><span class="p">,</span> <span class="n">Cnv</span> <span class="o">=</span> <span class="n">param_extract_flow_1d2c</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+        <span class="n">Jpa</span> <span class="o">=</span> <span class="n">Cpa</span><span class="o">*</span><span class="p">((</span><span class="n">fa</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">H</span><span class="p">(</span><span class="n">fa</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span> <span class="o">+</span> <span class="n">Da</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Jna</span> <span class="o">=</span> <span class="n">Cna</span><span class="o">*</span><span class="p">((</span><span class="o">-</span><span class="n">fa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">fa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span> <span class="o">+</span> <span class="n">Da</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Jpv</span> <span class="o">=</span> <span class="n">Cpv</span><span class="o">*</span><span class="p">((</span><span class="n">fv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">H</span><span class="p">(</span><span class="n">fv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span> <span class="o">+</span> <span class="n">Dv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Jnv</span> <span class="o">=</span> <span class="n">Cnv</span><span class="o">*</span><span class="p">((</span><span class="o">-</span><span class="n">fv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">fv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span> <span class="o">+</span> <span class="n">Dv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Jpa</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="n">fa</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jna</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">fa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jpv</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="n">fv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jnv</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">fv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">ua</span><span class="p">,</span> <span class="n">uv</span><span class="p">,</span> <span class="n">Kva</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">Ja</span><span class="p">,</span> <span class="n">Jpa_frac</span><span class="p">,</span> <span class="n">Jv</span><span class="p">,</span> <span class="n">Jpv_frac</span> <span class="o">=</span> <span class="n">param_extract_vel_1d2c_msres</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Nx</span><span class="p">)</span>
+        <span class="n">Jpa</span> <span class="o">=</span> <span class="n">Ja</span> <span class="o">*</span> <span class="n">Jpa_frac</span>
+        <span class="n">Jna</span> <span class="o">=</span> <span class="n">Ja</span> <span class="o">-</span> <span class="n">Jpa</span>
+        <span class="n">Jpv</span> <span class="o">=</span> <span class="n">Jv</span> <span class="o">*</span> <span class="n">Jpv_frac</span>
+        <span class="n">Jnv</span> <span class="o">=</span> <span class="n">Jv</span> <span class="o">-</span> <span class="n">Jpv</span>
+        <span class="n">Jpa</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="n">ua</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jna</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">ua</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jpv</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="n">uv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jnv</span> <span class="o">*=</span> <span class="n">H</span><span class="p">(</span><span class="o">-</span><span class="n">uv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Jpa</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">Jpa</span><span class="p">,</span><span class="n">Jpa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">Jna</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">Jna</span><span class="p">,</span><span class="n">Jna</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">Jpv</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">Jpv</span><span class="p">,</span><span class="n">Jpv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">Jnv</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">Jnv</span><span class="p">,</span><span class="n">Jnv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">inv</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">Jpa</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">Jpa</span><span class="p">,</span><span class="n">Jpa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">Jna</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">Jna</span><span class="p">,</span><span class="n">Jna</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">Jpv</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">Jpv</span><span class="p">,</span><span class="n">Jpv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">Jnv</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">Jnv</span><span class="p">,</span><span class="n">Jnv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">inv</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">Jpa</span> <span class="o">=</span> <span class="n">aif</span><span class="p">(</span><span class="n">Jpa</span><span class="p">)</span>
+        <span class="n">Jna</span> <span class="o">=</span> <span class="n">aif</span><span class="p">(</span><span class="n">Jna</span><span class="p">)</span>
+        <span class="n">Jpv</span> <span class="o">=</span> <span class="n">aif</span><span class="p">(</span><span class="n">Jpv</span><span class="p">)</span>
+        <span class="n">Jnv</span> <span class="o">=</span> <span class="n">aif</span><span class="p">(</span><span class="n">Jnv</span><span class="p">)</span>
+    
+    <span class="c1"># Convert into concentration (mmol/s --&gt; mmol/mL/s)</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1">#     Jpa = Jpa / (dxyz)</span>
+<span class="c1">#     Jna = Jna / (dxyz)</span>
+<span class="c1">#     Jpv = Jpv / (dxyz)</span>
+<span class="c1">#     Jnv = Jnv / (dxyz)</span>
+<span class="c1"># =============================================================================</span>
+    
+    <span class="k">if</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">C_tiss</span> <span class="o">=</span> <span class="n">fmod</span><span class="p">(</span><span class="n">Lx</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">tsamp</span><span class="p">,</span> <span class="n">dtsim</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">fv</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">va</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">Jpa</span><span class="p">,</span> <span class="n">Jpv</span><span class="p">,</span> <span class="n">Jna</span><span class="p">,</span> <span class="n">Jnv</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">C_tiss</span> <span class="o">=</span> <span class="n">fmod</span><span class="p">(</span><span class="n">Lx</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">tsamp</span><span class="p">,</span> <span class="n">dtsim</span><span class="p">,</span> <span class="n">ua</span><span class="p">,</span> <span class="n">uv</span><span class="p">,</span> <span class="n">Kva</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">Jpa</span><span class="p">,</span><span class="n">Jpv</span><span class="p">,</span> <span class="n">Jna</span><span class="p">,</span> <span class="n">Jnv</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">C_tiss</span> <span class="o">=</span> <span class="n">fmod</span><span class="p">(</span><span class="n">Lx</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">tsamp</span><span class="p">,</span> <span class="n">dtsim</span><span class="p">,</span> <span class="n">ua</span><span class="p">,</span> <span class="n">uv</span><span class="p">,</span> <span class="n">Kva</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">Jpa</span><span class="p">,</span><span class="n">Jpv</span><span class="p">,</span> <span class="n">Jna</span><span class="p">,</span> <span class="n">Jnv</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">C_tiss</span> <span class="o">=</span> <span class="n">fmod</span><span class="p">(</span><span class="n">Lx</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">tsamp</span><span class="p">,</span> <span class="n">dtsim</span><span class="p">,</span> <span class="n">ua</span><span class="p">,</span> <span class="n">uv</span><span class="p">,</span> <span class="n">Kva</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">Jpa</span><span class="p">,</span><span class="n">Jpv</span><span class="p">,</span> <span class="n">Jna</span><span class="p">,</span> <span class="n">Jnv</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">pic</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">C_tiss</span> <span class="o">=</span> <span class="n">fmod</span><span class="p">(</span><span class="n">Lx</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">tsamp</span><span class="p">,</span> <span class="n">dtsim</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">fv</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">va</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">Jpa</span><span class="p">,</span> <span class="n">Jpv</span><span class="p">,</span> <span class="n">Jna</span><span class="p">,</span> <span class="n">Jnv</span><span class="p">)</span>
+    
+    
+    <span class="k">return</span> <span class="n">C_tiss</span></div>
+
+
+<div class="viewcode-block" id="Ftofafv_1d2c">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.Ftofafv_1d2c.html#tkspace.forward_models.onedim.fm_utilities.Ftofafv_1d2c">[docs]</a>
+<span class="k">def</span> <span class="nf">Ftofafv_1d2c</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">fa1</span><span class="p">,</span><span class="n">fv1</span><span class="p">,</span><span class="n">dx</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Calculate arterial and venous flow using incompressiblity constraint.</span>
+<span class="sd">    Uses exchange term F = - d/dx(fa) = + d/dx(fv) to define the total flow of the system as incompressible.</span>
+<span class="sd">    Make use of boundary values of flows.</span>
+<span class="sd">     </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        </span>
+<span class="sd">        - F (numpy.ndarray float64):  </span>
+<span class="sd">            - Mono-directional exchange term from arterial to venous compartment. (mL/mL).  </span>
+<span class="sd">        - fa1 (float64):  </span>
+<span class="sd">            - Left boundary value of the arterial flow. (mL/s/cm^2).  </span>
+<span class="sd">        - fv1 (float64):  </span>
+<span class="sd">            - Left boundary value of the venous flow. (mL/s/cm^2).  </span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        - fa (numpy.ndarray float64):  </span>
+<span class="sd">            - Arterial flow at interfaces. (mL/s/cm^2).          </span>
+<span class="sd">        - fv (numpy.ndarray float64):  </span>
+<span class="sd">            - Venous flow at interfaces. (mL/s/cm^2).  </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">empty</span>
+    <span class="c1"># Uses exchange term F = - d/dx(fa) = + d/dx(fv) to define the</span>
+    <span class="c1"># </span>
+    
+    <span class="n">fa</span> <span class="o">=</span> <span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">F</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">fv</span> <span class="o">=</span> <span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">F</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">fa</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">fa1</span>
+    <span class="n">fv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">fv1</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">F</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">fa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">F</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span><span class="o">+</span><span class="n">fa</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">fv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span><span class="o">+</span><span class="n">fv</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">fa</span><span class="p">,</span> <span class="n">fv</span></div>
+
+
+<div class="viewcode-block" id="param_extract_flow_1d1c">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.param_extract_flow_1d1c.html#tkspace.forward_models.onedim.fm_utilities.param_extract_flow_1d1c">[docs]</a>
+<span class="k">def</span> <span class="nf">param_extract_flow_1d1c</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Nx</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Extracts parameters from stack for local picture in 1d1c.&#39;&#39;&#39;</span>
+    
+    <span class="n">Nt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">Jl</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="o">+</span><span class="n">Nt</span><span class="p">]</span>
+    <span class="n">Jr</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="o">+</span><span class="n">Nt</span><span class="p">:]</span>
+    
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">Jl</span><span class="p">,</span> <span class="n">Jr</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
+<div class="viewcode-block" id="param_extract_flow_1d2c">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.param_extract_flow_1d2c.html#tkspace.forward_models.onedim.fm_utilities.param_extract_flow_1d2c">[docs]</a>
+<span class="k">def</span> <span class="nf">param_extract_flow_1d2c</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span><span class="n">dx</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Extracts parameters from stack for local picture in 1d2c.&#39;&#39;&#39;</span>
+    
+    <span class="n">Nt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(((</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">fa1</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">fv1</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">F</span>   <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">Da</span> <span class="o">=</span> <span class="n">P</span><span class="p">[(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">Dv</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">va_frac</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">Bla</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">Nt</span><span class="p">]</span>
+    <span class="n">Blv</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">Nt</span><span class="p">:</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">Nt</span><span class="p">]</span>
+    <span class="n">Bra</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">Nt</span><span class="p">:</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">Nt</span><span class="p">)]</span>
+    <span class="n">Brv</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">Nt</span><span class="p">:</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">Nt</span><span class="p">)]</span>
+    
+    <span class="n">va</span> <span class="o">=</span> <span class="n">v</span><span class="o">*</span><span class="n">va_frac</span>
+    <span class="n">vv</span><span class="o">=</span><span class="n">v</span><span class="o">-</span><span class="n">va</span>
+    <span class="n">fa</span><span class="p">,</span> <span class="n">fv</span> <span class="o">=</span> <span class="n">Ftofafv_1d2c</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">fa1</span><span class="p">,</span><span class="n">fv1</span><span class="p">,</span><span class="n">dx</span> <span class="p">)</span>    
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">fa1</span><span class="p">,</span> <span class="n">fv1</span><span class="p">,</span><span class="n">fa</span><span class="p">,</span><span class="n">fv</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">va</span><span class="p">,</span> <span class="n">va_frac</span><span class="p">,</span><span class="n">vv</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">Bla</span><span class="p">,</span><span class="n">Blv</span><span class="p">,</span> <span class="n">Bra</span><span class="p">,</span> <span class="n">Brv</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
+<div class="viewcode-block" id="param_extract_vel_1d1c">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.param_extract_vel_1d1c.html#tkspace.forward_models.onedim.fm_utilities.param_extract_vel_1d1c">[docs]</a>
+<span class="k">def</span> <span class="nf">param_extract_vel_1d1c</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Nx</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Extracts parameters from stack for tissue picture in 1d1c.&#39;&#39;&#39;</span>
+    
+    <span class="n">Nt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">Jl</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="o">+</span><span class="n">Nt</span><span class="p">]</span>
+    <span class="n">Jr</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="o">+</span><span class="n">Nt</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">Nt</span><span class="p">]</span>
+    
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">Jl</span><span class="p">,</span> <span class="n">Jr</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
+<div class="viewcode-block" id="param_extract_vel_1d2c">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.param_extract_vel_1d2c.html#tkspace.forward_models.onedim.fm_utilities.param_extract_vel_1d2c">[docs]</a>
+<span class="k">def</span> <span class="nf">param_extract_vel_1d2c</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Nx</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Extracts parameters from stack for tissue picture in 1d2c.&#39;&#39;&#39;</span>
+    
+    <span class="n">Nt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(((</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">))</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">ua</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">uv</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">Kva</span>  <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">]</span>
+    <span class="n">Da</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">]</span>
+    <span class="n">Dv</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">]</span>
+    <span class="n">Bla</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="n">Nt</span><span class="p">]</span>
+    <span class="n">Blv</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="n">Nt</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">Nt</span><span class="p">]</span>
+    <span class="n">Bra</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">Nt</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">Nt</span><span class="p">]</span>
+    <span class="n">Brv</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">Nt</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">Nt</span><span class="p">]</span>
+    
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">ua</span><span class="p">,</span> <span class="n">uv</span><span class="p">,</span> <span class="n">Kva</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">Bla</span><span class="p">,</span> <span class="n">Blv</span><span class="p">,</span> <span class="n">Bra</span><span class="p">,</span> <span class="n">Brv</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
+
+<div class="viewcode-block" id="param_extract_vel_1d2c_msres">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.param_extract_vel_1d2c_msres.html#tkspace.forward_models.onedim.fm_utilities.param_extract_vel_1d2c_msres">[docs]</a>
+<span class="k">def</span> <span class="nf">param_extract_vel_1d2c_msres</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Nx</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Extracts parameters from stack for multiresolution tissue picture in 1d2c.&#39;&#39;&#39;</span>
+    
+    <span class="n">Nt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(((</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">))</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">ua</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">uv</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">Kva</span>  <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">]</span>
+    <span class="n">Da</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">]</span>
+    <span class="n">Dv</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">]</span>
+    <span class="n">Ba</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="n">Nt</span><span class="p">]</span>
+    <span class="n">Bpa_frac</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="n">Nt</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">Nt</span><span class="p">]</span>
+    <span class="n">Bv</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">Nt</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">Nt</span><span class="p">]</span>
+    <span class="n">Bpv_frac</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">Nt</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Nx</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">Nt</span><span class="p">]</span>
+    
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">ua</span><span class="p">,</span> <span class="n">uv</span><span class="p">,</span> <span class="n">Kva</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">Ba</span><span class="p">,</span> <span class="n">Bpa_frac</span><span class="p">,</span> <span class="n">Bv</span><span class="p">,</span> <span class="n">Bpv_frac</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
+<div class="viewcode-block" id="parker2006AIF">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.parker2006AIF.html#tkspace.forward_models.onedim.fm_utilities.parker2006AIF">[docs]</a>
+<span class="k">def</span> <span class="nf">parker2006AIF</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Produces an arterial input function (AIF) based on the findings in (Parker, 2006).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        </span>
+<span class="sd">        - t (numpy.ndarray float64):  </span>
+<span class="sd">            - Timepoints to calculate AIF over (mins).</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        </span>
+<span class="sd">        - aif (numpy.ndarray float64):  </span>
+<span class="sd">            - AIF over timepoints supplied in mM.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    
+    <span class="n">A1</span> <span class="o">=</span> <span class="mf">0.809</span> <span class="c1"># An = scaling constantsof the nth Gaussian</span>
+    <span class="n">A2</span> <span class="o">=</span> <span class="mf">0.330</span>
+    <span class="n">T1</span> <span class="o">=</span> <span class="mf">0.17046</span> <span class="c1"># Tn = centers of the nth Gaussian</span>
+    <span class="n">T2</span> <span class="o">=</span> <span class="mf">0.365</span>
+    <span class="n">sig1</span> <span class="o">=</span> <span class="mf">0.0563</span> <span class="c1"># σn = widths of the nth Gaussian</span>
+    <span class="n">sig2</span> <span class="o">=</span> <span class="mf">0.132</span> 
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.050</span> <span class="c1">#α = amplitude of the exponential  </span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.1685</span> <span class="c1"># β = decay constant of the exponential </span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mf">38.078</span> <span class="c1">#s = width of the sigmoid</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="mf">0.483</span> <span class="c1">#τ = center of the sigmoid</span>
+    
+    <span class="n">c1</span> <span class="o">=</span> <span class="p">(</span><span class="n">A1</span><span class="o">/</span><span class="p">(</span><span class="n">sig1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">t</span><span class="o">-</span><span class="n">T1</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">sig1</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span><span class="o">+</span><span class="p">((</span><span class="n">alpha</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="o">*</span><span class="n">t</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">tau</span><span class="p">))))</span>
+    <span class="n">c2</span> <span class="o">=</span> <span class="p">(</span><span class="n">A2</span><span class="o">/</span><span class="p">(</span><span class="n">sig2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">t</span><span class="o">-</span><span class="n">T2</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">sig2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span><span class="o">+</span><span class="p">((</span><span class="n">alpha</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="o">*</span><span class="n">t</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">tau</span><span class="p">))))</span>
+    <span class="n">aif</span> <span class="o">=</span> <span class="n">c1</span><span class="o">+</span><span class="n">c2</span> <span class="c1"># cb = population averaged AIF</span>
+    
+    <span class="k">return</span> <span class="n">aif</span></div>
+
+
+<div class="viewcode-block" id="parker2006AIF_flexible">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.parker2006AIF_flexible.html#tkspace.forward_models.onedim.fm_utilities.parker2006AIF_flexible">[docs]</a>
+<span class="k">def</span> <span class="nf">parker2006AIF_flexible</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">params</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Produces an arterial input function (AIF) based on the findings in (Parker, 2006).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        </span>
+<span class="sd">        - t (numpy.ndarray float64):  </span>
+<span class="sd">            - Timepoints to calculate AIF over (mins).</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        </span>
+<span class="sd">        - aif (numpy.ndarray float64):  </span>
+<span class="sd">            - AIF over timepoints supplied in mM.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    
+    <span class="n">A1</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">A2</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">T1</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">T2</span>  <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> 
+    <span class="n">sig1</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">sig2</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+    <span class="n">alpha</span><span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> 
+    <span class="n">beta</span><span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> 
+    <span class="n">s</span><span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> 
+    <span class="n">tau</span><span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+    
+    <span class="n">c1</span> <span class="o">=</span> <span class="p">(</span><span class="n">A1</span><span class="o">/</span><span class="p">(</span><span class="n">sig1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">t</span><span class="o">-</span><span class="n">T1</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">sig1</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span><span class="o">+</span><span class="p">((</span><span class="n">alpha</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="o">*</span><span class="n">t</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">tau</span><span class="p">))))</span>
+    <span class="n">c2</span> <span class="o">=</span> <span class="p">(</span><span class="n">A2</span><span class="o">/</span><span class="p">(</span><span class="n">sig2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">t</span><span class="o">-</span><span class="n">T2</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">sig2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span><span class="o">+</span><span class="p">((</span><span class="n">alpha</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="o">*</span><span class="n">t</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">tau</span><span class="p">))))</span>
+    <span class="n">aif</span> <span class="o">=</span> <span class="n">c1</span><span class="o">+</span><span class="n">c2</span> <span class="c1"># cb = population averaged AIF</span>
+    
+    <span class="k">return</span> <span class="n">scale</span><span class="o">*</span><span class="n">aif</span></div>
+
+
+
+
+<div class="viewcode-block" id="convertTtoL">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.convertTtoL.html#tkspace.forward_models.onedim.fm_utilities.convertTtoL">[docs]</a>
+<span class="k">def</span> <span class="nf">convertTtoL</span><span class="p">(</span><span class="n">value_tuple</span><span class="p">):</span>
+    
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros_like</span>
+    
+    <span class="n">fa1</span><span class="p">,</span> <span class="n">fv1</span><span class="p">,</span><span class="n">fa</span><span class="p">,</span><span class="n">fv</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">va</span><span class="p">,</span> <span class="n">va_frac</span><span class="p">,</span><span class="n">vv</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">Bla</span><span class="p">,</span><span class="n">Blv</span><span class="p">,</span> <span class="n">Bra</span><span class="p">,</span> <span class="n">Brv</span> <span class="o">=</span> <span class="n">value_tuple</span>
+    
+    <span class="n">ua</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">fa</span><span class="p">)</span>
+    <span class="n">uv</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">fv</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">fa</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">fa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">fa</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">ua</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">va</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ua</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">va</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">fa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">ua</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">va</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ua</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">va</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ua</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+        
+        <span class="k">if</span> <span class="n">fv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">fv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">uv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">vv</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">uv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">vv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">fv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">uv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">vv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">uv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">vv</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">uv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+
+    <span class="n">Kva</span> <span class="o">=</span> <span class="n">F</span><span class="o">/</span><span class="n">va</span>
+    
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">ua</span><span class="p">,</span> <span class="n">uv</span><span class="p">,</span> <span class="n">Kva</span><span class="p">,</span> <span class="n">Da</span><span class="p">,</span> <span class="n">Dv</span><span class="p">,</span> <span class="n">Bla</span><span class="p">,</span> <span class="n">Blv</span><span class="p">,</span> <span class="n">Bra</span><span class="p">,</span> <span class="n">Brv</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
+<div class="viewcode-block" id="convertTtoL_oneComp">
+<a class="viewcode-back" href="../../../../reference/generated/tkspace.forward_models.onedim.fm_utilities.convertTtoL_oneComp.html#tkspace.forward_models.onedim.fm_utilities.convertTtoL_oneComp">[docs]</a>
+<span class="k">def</span> <span class="nf">convertTtoL_oneComp</span><span class="p">(</span><span class="n">value_tuple</span><span class="p">):</span>
+    
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros_like</span>
+    
+    <span class="n">f1</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">Bl</span><span class="p">,</span> <span class="n">Br</span> <span class="o">=</span> <span class="n">value_tuple</span>
+    
+    <span class="n">u</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">D</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">f1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">D</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f1</span><span class="o">/</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f1</span><span class="o">/</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">f1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f1</span><span class="o">/</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f1</span><span class="o">/</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">Bl</span><span class="p">,</span> <span class="n">Br</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
+
+
+
+
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Eve Shalom.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
