@@ -42,13 +42,13 @@ Runs using Python3.x, other specifc library dependancies are as follows:
 
 ## Example Scripts
 
-See the example scripts in example directory for a setups showing:
+See the example scripts in example directory for a setups showing full implementaion in 3 two-compartment system cases.
+This includes:
 
 * The forwards model producing a ground truth set of concentration curves.
-* The addition of smapling and noise to these data.
+* The addition of sampling and noise to these data.
 * The application of an inversion recovery using the gradient descent method.
 
-There are 4 package examples scripts for each of the 1d forwards model types.
 The functions are imported with general names so they are easy to follow and compare.
 
 ---
