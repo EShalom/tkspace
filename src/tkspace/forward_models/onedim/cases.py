@@ -544,7 +544,7 @@ def case_1D2C(case, res): # Case1: dual aif
         
         fa1 = 3 # mL/s/cm^2
         fv1 = -6
-        F = (0.6*(0.8*np.sin(2000*xc)**2)+0.3)*0.07 # mL/s/mL
+        F = (0.6*(0.8*np.sin(20000*(xc/10))**2)+0.3)*0.07 # mL/s/mL (Note: due to aliasing use (np.sin((20000-6366.25*np.pi)*(xc/10)) if dx changing from 8mm)
         fa, fv = Ftofafv_1d2c(F,fa1,fv1,dx)
         
         ua = np.zeros_like(fa)
