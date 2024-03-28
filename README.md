@@ -42,14 +42,17 @@ Runs using Python3.x, other specifc library dependancies are as follows:
 
 ## Example Scripts
 
-See the example scripts in example directory for a setups showing full implementaion in 3 two-compartment system cases.
+See the example scripts in the example directory for setups showing full implementation in 3 two-compartment system cases.
 This includes:
 
-* The forwards model producing a ground truth set of concentration curves.
+* The forward model for producing a ground truth set of concentration curves.
 * The addition of sampling and noise to these data.
 * The application of an inversion recovery using the gradient descent method.
 
 The functions are imported with general names so they are easy to follow and compare.
+
+## Full Implementation 
+See a related repository [tkspace examples and outputs](https://github.com/EShalom/tkspace_examples_and_outputs) with [DOI](https://zenodo.org/doi/10.5281/zenodo.10870945) For runfiles and analysis scripts that relate to simulations and results presented in the manuscript (Shalom ES, Van Loo S, Khan A, and Sourbron SP. _Submitted_. "Identifiability of spatiotemporal tissue perfusion models".).
 
 ---
 
