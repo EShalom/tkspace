@@ -51,8 +51,12 @@ This includes:
 
 The functions are imported with general names so they are easy to follow and compare.
 
+---
+
 ## Full Implementation 
 See a related repository [tkspace examples and outputs](https://github.com/EShalom/tkspace_examples_and_outputs) with [DOI](https://zenodo.org/doi/10.5281/zenodo.10870945) For runfiles and analysis scripts that relate to simulations and results presented in the manuscript (Shalom ES, Van Loo S, Khan A, and Sourbron SP. _Submitted_. "Identifiability of spatiotemporal tissue perfusion models".).
+
+The runfiles within the [tkspace examples and outputs](https://github.com/EShalom/tkspace_examples_and_outputs) require the `tkspace` source code to be built from source using the .whl files provided within the `dist/` directory of this repository.
 
 ---
 
